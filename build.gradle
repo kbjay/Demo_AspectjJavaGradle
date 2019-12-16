@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath('org.aspectj:aspectjtools:1.8.6')
+        classpath "gradle.plugin.de:AspectjGradlePlugin:0.0.3"
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+group 'com.kj'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+ext {
+    aspectjVersion = '1.8.5'
+}
+apply plugin: "aspectj.AspectjGradlePlugin"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.aspectj:aspectjrt:1.8.6'
+    compile 'org.aspectj:aspectjtools:1.8.6'
+}
